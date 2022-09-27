@@ -41,10 +41,12 @@ h1,h2 {
   /* 왼쪽 박스 */
 
 .left_box{
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
     background-color: white;
     width: 360px;
-    height: 545px;
+    /* height: 545px; */
 }
 
 
@@ -54,20 +56,56 @@ h1,h2 {
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin-top: 20px;
+    gap: 12px;
+    width: 306px;
+    height: 284px;
+}
+
+.list_cola li{
+    width: 94px;
+    height: 130px;
 }
 
 .list_cola img{
-    width: 50%;
-    height: 60%;
+    width: 35px;
+    height: 64px;
 }
 
 .list_cola button{
     background-color: white;
-    border: 3px solid #ebebeb;
+    border: none;
+    box-shadow: 0px 0px 2px 1px rgb(0 0 0 / 25%);
     width: 94px;
     height: 130px;
     margin-top: 10px;
     border-radius: 10px;
+    position: relative;
+}
+
+.list_cola .serect-item::before{
+    content: '';
+    position: absolute;
+    top: -1%;
+    left: -1%;
+    background-color: black;
+    width: 95px;
+    height: 131px;
+    opacity: .7;
+    border-radius: 11px;
+}
+
+
+.list_cola .serect-item::after{
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 14%;
+    background-image: url(/mediaquery/품절.png);
+    background-repeat: no-repeat;
+    width: 88px;
+    height: 125px;
+    
+    
 }
 
 li button .text-btn{
@@ -76,40 +114,49 @@ li button .text-btn{
 }
 
 li button .purple-btn{
+    display: inline-block;
     background-color: #6327FE;
     border: 2px solid;
     border-radius: 50px;
     color: white;
     padding: 2px 15px;
-    margin-top: 10px;
+
 }
 
 li button:hover{
-    border: 3px solid #6327FE;
+  
+    outline: 3px solid #6327FE;
+    
+    
 }
 
 li button:focus{
-    border: 3px solid #6327FE;
+    outline: 3px solid #6327FE;
+    
 }
 
 
 .left_box_sub{
     display: grid;
     grid-template-columns:2fr 1fr; 
-    margin: 20px;
-    gap:10px;
-    height: 33px;    
+    margin-top: 20px;
+    gap:12px;
+    width: 306px; 
 }
 
 /* 잔액, 거스름돈 반환 */
 .money-left-box{
     display: flex;
     justify-content: space-between;
-    height: 33px;
+    padding: 6px 20px 6px 10px;
+    width: 170px;
     align-items: center;
-    padding: 0px 10px 0px 10px;
     background-color: #EAE8FE;
     border-radius: 5px;
+}
+
+.left-now-money{
+    padding-left: 60px ;
 }
 
 .left_box_sub .result-btn1{
@@ -118,6 +165,7 @@ li button:focus{
     height: 33px;
     border-radius: 5px;
     box-shadow: 1px 1px 1px 1px #d8d8d8;
+    cursor: pointer;
 }
 
 /* 입금액 ,입금버튼 */
@@ -130,6 +178,7 @@ input{
 left_box_sub .money-left-box2{
     border-radius: 5px;
     border: 1px solid #d8d8d8;
+    cursor: pointer;
 }    
 
 /* 콜라 리스트 , 획득버튼 */
@@ -144,12 +193,30 @@ left_box_sub .money-left-box2{
 
 .cola-result li{
     background-color: white;
-    margin: 12px;
+    margin: 10px; 
     border-radius: 5px;
     position: relative;
     font-size: 9px;
     padding: 18px;
-    
+}
+
+.cola-result li span{
+    margin: 15px;
+}
+
+.cola-result::-webkit-scrollbar {
+    width: 10px;
+}
+
+.cola-result::-webkit-scrollbar-thumb {
+    background-color: #fff;
+    border-radius: 50px;
+    background-clip: padding-box;
+    border: 3px solid transparent;
+}
+
+.cola-result::-webkit-scrollbar-track {
+    margin: 5px;
 }
 
 .cola-result li::before{
@@ -170,7 +237,6 @@ left_box_sub .money-left-box2{
     border: 1px solid gray;
     width: 30px;
     height: 30px;
-    
     border-radius: 5px;
     left:73%;
     top:15%;
@@ -185,6 +251,7 @@ left_box_sub .money-left-box2{
     height: 120px;
     border-radius: 5px;
     box-shadow: 1px 1px 1px 1px #d8d8d8;
+    cursor: pointer;
     
 }
 
@@ -203,7 +270,6 @@ left_box_sub .money-left-box2{
     height: 50px;
     margin-bottom: 16px;
     position: relative;
-
 }
 
 .my_money .money-rigth-box{    
@@ -213,18 +279,24 @@ left_box_sub .money-left-box2{
     margin: 8px 10px;
     position: absolute;
     width: 320px;
+    border-radius: 5px;
     top:0;
 }
 
-.my_money .money-rigth-box span{
+.my_money .money-rigth-box .now_money{
     position: relative;
+    
 }
 
 
-.my_money .money-rigth-box span::after{
+.my_money .money-rigth-box .now_money::after{
     content: '원';
     position: absolute;
     left: 280px;
+}
+
+.now-number{
+    margin-left: 180px;
 }
 
 
@@ -290,6 +362,7 @@ left_box_sub .money-left-box2{
 }
 
 .number-relsut{
+    font-size: 14px;
     display: grid;
     text-align: right;
     margin-right: 27px;
@@ -297,7 +370,7 @@ left_box_sub .money-left-box2{
 }
 
 
-@media(max-width:400px) {
+@media(max-width:760px) {
 
     header img{
      width:166px;
@@ -306,12 +379,9 @@ left_box_sub .money-left-box2{
     
     .right_box{
         background-color: white;
-        margin-left: 0px;
-    }
-
-
-    
-    
+        margin-left: 0;
+        padding-bottom: 20px;
+    }  
 }
 
 
